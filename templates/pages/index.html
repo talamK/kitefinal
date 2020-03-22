@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% block title %} | Welcome {% endblock %}
+{% block content %}
+
+<!-- Showcase -->
+
+  
+      <br>
+      <!--  Alerts -->
+      {% include 'partials/_alerts.html' %}
+
+
+
+
+    
+      <section class="ftco-section">
+        <div class="container">
+          <div class="row justify-content-center mb-5 pb-5">
+            <div class="col-md-6 text-center heading-section ftco-animate">
+              <span class="subheading">We Believe in Jesus Christ who is the Word Himself</span>
+              <h2 class="mb-4 alert" >The real temple of our Lord Jesus Christ is our heart</h2>
+              <p style="color: rgb(236, 119, 10); font-weight: bold;">Not even covid-19 can separate us from the love of our Lord,
+                 we will continually pray and worship our lord jesus christ in our hearts
+              We need to fear what kills the soul than to fear what kills the body alone</p>
+    
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+              <div class="media block-6 services d-block text-center">
+                <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-planet-earth"></span></div></div>
+                <div class="media-body p-2 mt-3">
+                  <h3 class="heading">Never had of Endtime Message?</h3>
+                  <p style="color: rgb(236, 119, 10); font-weight: bold;">This is the end time, The Lord Jesus Christ is about to come for His Bride The Church<br>
+                  you are aware of the development in the world, this was prophesised by a prophet of God who is the seventh messanger sent by God to prepair the Church for the great day!<br>
+                  do not be left behind,<br>
+                  If you believe that Jesus died for you,<strong> BE BAPTISED IN THE NAME OF JESUS</strong> and you will receive the gift of the Holy Spirit
+                  
+                </p>
+                </div>
+              </div>      
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+              <div class="media block-6 services d-block text-center">
+                <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-maternity"></span></div></div>
+                <div class="media-body p-2 mt-3">
+                  <h3 class="heading">Where in the  Bible is this Ministry?</h3>
+                  <p style="color: rgb(236, 119, 10); font-weight: bold;">
+                    Malachi 4:5-6<br>
+                    Behold, I will send you Elijah the prophet
+                    Before the coming of the great and dreadful day of the Lord.
+                    6 And he will turn
+                    The hearts of the fathers to the children,
+                    And the hearts of the children to their fathers,
+                    Lest I come and strike the earth with a curse.<br>
+                   <hr>
+                  Revelation 10:7 <br>
+                  
+                  But in the days of the voice of the seventh angel, when he shall begin to sound, the mystery of God should be finished,
+                   as he hath declared to his servants the prophets.</p>
+                </div>
+              </div>      
+            </div>
+            <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+              <div class="media block-6 services d-block text-center">
+                <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-pray"></span></div></div>
+                <div class="media-body p-2 mt-3">
+                  <h3 class="heading">Prayer Request</h3>
+                  <p style="color: rgb(236, 119, 10); font-weight: bold;">Need to make a request to our Lord? <br>
+                  our prophet taught us<br>
+                   --------------- <br>This is the keynote to the Scriptures. Faith, he that cometh to God must believe that He is,
+                    and a Rewarder of those who diligently seek Him. Without faith, it is impossible to please God.
+    47-0412 - Faith Is The Substance
+    Rev. William Marrion Branham
+                
+                </p>
+                </div>
+              </div>    
+            </div>
+  
+            <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+              <div class="media block-6 services d-block text-center">
+                <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><span class="align-self-center flaticon-podcast"></span></div></div>
+                <div class="media-body p-2 mt-3">
+                  <h3 class="heading">This website</h3>
+                  <p style="color: rgb(236, 119, 10); font-weight: bold;">This website is design to help you access sermons and any announcement from the Church<br>
+                  you need to create an account and log in to see this anouncement and download the sermon<br>
+                should you find any problem logig in please contact as and we are here to help</p>
+                </div>
+              </div>      
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      
+
+
+
+    
+      <!-- sermons -->
+      <section id="listings" class="py-5">
+        <div class="container">
+          <h3 class="text-center mb-3">Latest Sermon</h3>
+          <div class="row">
+            {% if listings %}
+              {% for listing in listings %}
+              <div class="col-md-6 col-lg-4 mb-4">
+                  <div class="card listing-preview">
+                    <img class="card-img-top" src="{{listing.photo_main.url}}" alt="">
+                    <div class="card-img-overlay">
+                      <h2>
+                        <span class="badge badge-secondary text-white">${{listing.price | intcomma }}</span>
+                      </h2>
+                    </div>
+                    <div class="card-body">
+                      <div class="listing-heading text-center">
+                        <h4 class="text-primary">{{listing.title}}</h4>
+                        <p>
+                          <i class="fas fa-map-marker text-secondary"></i> {{listing.city}} {{listing.state}},{{listing.zipcode}}</p>
+                      </div>
+                      <hr>
+                      <div class="row py-2 text-secondary">
+                        <div class="col-6">
+                          <i class="fas fa-th-large"></i> Duration: {{listing.duration}} hrs</div>
+                        <div class="col-6">
+                          <i class="fas fa-car"></i> video size: {{listing.video_size}} Mb</div>
+                      </div>
+                      <div class="row py-2 text-secondary">
+                        <div class="col-6">
+                          <i class="fas fa-bed"></i> Location: {{listing.location}}</div>
+                        <div class="col-6">
+                          <i class="fas fa-bath"></i> Audio Size: {{listing.audio_size}}</div>
+                      </div>
+                      <hr>
+                      <div class="row py-2 text-secondary">
+                        <div class="col-6">
+                          <i class="fas fa-user"></i>Br. {{listing.pastor}}</div>
+                      </div>
+                      <div class="row text-secondary pb-2">
+                        <div class="col-6">
+                          <i class="fas fa-clock"></i> {{listing.list_date | timesince}}</div>
+                      </div>
+                      <hr>
+                      <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block">More Info</a>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% else %}
+              <div class="col-md-12">
+                <p>No Data Available</p>
+              </div>
+            {% endif %}
+        
+         </div>
+        </div>
+      </section>
+    
+      <section id="services" class="py-5 bg-secondary text-white">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-4">
+              <i class="fas fa-comment fa-4x mr-4"></i>
+              <hr>
+              <h3>TALK TO US</h3>
+              <p>Text, whatsapp, email or call us for any question or inquiry</p>
+            </div>
+            <div class="col-md-4">
+              <i class="fas fa-home fa-4x mr-4"></i>
+              <hr>
+              <h3>OUR CHURCH</h3>
+              <p>Waiting for our Lord Jesus Christ, we worship in a church in Kitengela near Consolidated Bank.</p>
+            </div>
+            <div class="col-md-4">
+              <i class="fas fa-suitcase fa-4x mr-4"></i>
+              <hr>
+              <h3>OUR SERVICES</h3>
+              <p>We meet on Sundays and Thursdays for fellowship</p>
+            </div>
+          </div>
+        </div>
+      </section>
+{% endblock %}
